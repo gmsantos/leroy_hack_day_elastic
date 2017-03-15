@@ -2,12 +2,28 @@ PUT ddrills
 {
 	"mappings": {
 		"product": {
-	  	"properties": {
-		    "name": { "type": "text" },
-		    "description": { "type": "text" },
-		    "brand": { "type": "text" },
-		    "price": { "type": "double" },
-		    "images": { "type": "keyword" }
-	  	}
+	  		"properties": {
+		    		"name": { "type": "text" },
+		    		"description": { "type": "text" },
+		    		"brand": { "type": "text" },
+		    		"price": { "type": "double" },
+		    		"images": { "type": "keyword" }
+	  		}
+		},
+		"characteristic": {
+			"properties": {
+        			"rpm": {"type": "integer"},
+				"color": {"type": "keyword"},
+				"eletric_voltage":{"type": "integer"},
+				"eletric_current": {"type": "integer"},
+				"indicated_use": {"type": "keyword"},
+				"power": {"type": "integer"},
+				"power_supply": {"type": "keyword"},
+				"battery_type": {"type": "keyword"},
+				"mandrill_size": {"type": "keyword"},
+				"torque": {"type": "integer"},
+				"line": {"type": "text"}
+    			}
+		}	
 	}
 }
