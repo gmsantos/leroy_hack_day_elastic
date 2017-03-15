@@ -14,7 +14,7 @@ PUT ddrills
 			"properties": {
         		"rpm": {"type": "integer"},
 				"color": {"type": "keyword"},
-				"eletric_voltage":{"type": "integer"},
+				"eletric_voltage": {"type": "keyword"},
 				"indicated_use": {"type": "keyword"},
 				"power": {"type": "integer"},
 				"power_supply": {"type": "keyword"},
