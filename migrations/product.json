@@ -17,6 +17,83 @@ PUT ddrills/product/1
     "line": "Profissional"
 }
 
+
+PUT ddrills/product/2
+{
+    "name": "Parafusadeira e Furadeira 3/8\" 9,6V CD961-BR Bivolt Black & Decker",
+    "description": "Parafusadeira e Furadeira",
+    "brand": "Black & Decker",
+    "price": 164.90,
+    "images": ["https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/furadeira_e_parafusadeira_3_8_a_bateria_bivolt_9_6v_blackedecker_86908794_0001_600x600.jpg"],
+    "rpm": 1300,
+    "color": "laranja",
+    "eletric_voltage": "bivolt",
+    "indicated_use": ["Metal", "Madeira"],
+    "power": 0,
+    "power_supply": "Bateria",
+    "battery_type": "íons-lítio",
+    "mandrill_size": "3/8\"",
+    "torque": 6,
+    "line": "Hobista"
+}
+
+PUT ddrills/product/3
+{
+    "name": "Parafusadeira e Furadeira 3/8\" 1,5V GSB 12002 LI 127V (110V) Bosch",
+    "description": "Parafusadeira e Furadeira",
+    "brand": "Bosch",
+    "price": 539.90,
+    "images": ["https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/parafuradeira_e_furadeira_bateria_12v_gsb1200_2li_127v__110v__bosch_89309864_98f7_600x600.jpg"],
+    "rpm": 1300,
+    "color": "azul",
+    "eletric_voltage": "110v",
+    "indicated_use": ["Alvenaria Vazada", "Metal", "Madeira"],
+    "power": 0,
+    "power_supply": "Bateria",
+    "battery_type": "íons-lítio",
+    "mandrill_size": "3/8\"",
+    "torque": 28,
+    "line": "Profissional"
+}
+
+PUT ddrills/product/4
+{
+    "name": "Parafusadeira e Furadeira 1/4\" 400W GSR 714E 127V (110V) Bosch",
+    "description": "Parafusadeira e Furadeira",
+    "brand": "Bosch",
+    "price": 188.90,
+    "images": ["https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/furadeira_e_parafusadeira__a_cabo_gsr7_14_e_127v_89125106_0001_600x600.jpg"],
+    "rpm": 1400,
+    "color": "azul",
+    "eletric_voltage": "110v",
+    "indicated_use": ["Metal", "Madeira"],
+    "power": 400,
+    "power_supply": "Bateria",
+    "battery_type": "íons-lítio",
+    "mandrill_size": "1/4\"",
+    "torque": 10,
+    "line": "Profissional"
+}
+
+PUT ddrills/product/5
+{
+    "name": "Kit Ferramentas Parafusadeira e Furadeira de Impacto CLX202SAX 12V Makita",
+    "description": "Parafusadeira e Furadeira",
+    "brand": "Makita",
+    "price": 949.90,
+    "images": ["https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/combo_ferramentas_12v_bivolt_clx202sax_makita_89442346_0001_600x600.jpg"],
+    "rpm": 1700,
+    "color": "azul e preto",
+    "eletric_voltage": "bivolt",
+    "indicated_use": ["Alvenaria Vazada", "Metal", "Madeira"],
+    "power": 400,
+    "power_supply": "Bateria",
+    "battery_type": "íons-lítio",
+    "mandrill_size": "3/8\"",
+    "torque": 14,
+    "line": "Profissional"
+}
+
 PUT ddrills/product/6
 {
     "name": "Furadeira de Impacto 1/2\" 710 WP 1630K 127V (110V) Makita",
@@ -109,5 +186,4 @@ PUT ddrills/product/10
     "battery_type": "",
     "mandrill_size": "1/2\"",
     "torque": 0,
-    "line": "Profissional"
 }
