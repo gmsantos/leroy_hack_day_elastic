@@ -1,0 +1,13 @@
+PUT ddrills
+{
+	"mappings": {
+		"product": {
+	  	"properties": {
+		    "name": { "type": "text" },
+		    "description": { "type": "text" },
+		    "brand": { "type": "text" },
+		    "price": { "type": "double" },
+		    "images": { "type": "keyword" }
+	  	}
+	}
+}
