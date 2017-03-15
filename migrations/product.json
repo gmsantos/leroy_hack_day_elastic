@@ -1,13 +1,18 @@
 PUT ddrills/product/1
 {
-  "name": "",
-  "description":  "",
-  "brand": "elasticsearch",
-  "price": "elasticsearch",
-  "images": [
-    {
-      "name": "prog_list",
-      "description": "programming list"
-    },
-  ]
+    "name": "Parafusadeira e Furadeira 3/8\" 1,5V GSB 12002 LI 250V (220V) Bosch",
+    "description": "Parafusadeira e Furadeira",
+    "brand": "Bosch",
+    "price": 539.90,
+    "images": ["https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/parafuradeira_e_furadeira_bateria_12v_gsb1200_2li_250v__220v__bosch_89309871_9e06_600x600.jpg"],
+    "rpm": 1300,
+    "color": "azul",
+    "eletric_voltage": "220V",
+    "indicated_use": ["Alvenaria Vazada", "Metal", "Madeira"],
+    "power": 0,
+    "power_supply": "Bateria",
+    "battery_type": "íons-lítio",
+    "mandrill_size": "3/8\"",
+    "torque": 28,
+    "line": "Profissional"
 }

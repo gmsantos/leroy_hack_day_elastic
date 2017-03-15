@@ -7,11 +7,7 @@ PUT ddrills
 	    		"description": { "type": "text" },
 	    		"brand": { "type": "text" },
 	    		"price": { "type": "double" },
-	    		"images": { "type": "keyword" }
-	  		}
-		},
-		"characteristic": {
-			"properties": {
+	    		"images": { "type": "keyword" },
         		"rpm": {"type": "integer"},
 				"color": {"type": "keyword"},
 				"eletric_voltage": {"type": "keyword"},
