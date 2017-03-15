@@ -1,0 +1,13 @@
+PUT ddrills/product/1
+{
+  "name": "",
+  "description":  "",
+  "brand": "elasticsearch",
+  "price": "elasticsearch",
+  "images": [
+    {
+      "name": "prog_list",
+      "description": "programming list"
+    },
+  ]
+}
