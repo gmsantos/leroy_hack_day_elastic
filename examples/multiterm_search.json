@@ -1,0 +1,11 @@
+GET ddrills/product/_search
+{
+    "query": {
+        "bool" : {
+            "must" : [
+                {"term" : { "brand" : "bosch" } },
+                {"term" : { "line" : "profissional" } }
+            ]
+        }
+    }
+}

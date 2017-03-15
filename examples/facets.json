@@ -1,0 +1,20 @@
+GET ddrills/product/_search
+{
+    "query": {
+        "term": {
+            "brand": "bosch"
+        }
+    },
+    "aggregations": {
+        "line": {
+            "terms": {
+                "field": "line"
+            }
+        },
+        "eletric_voltage": {
+            "terms": {
+                "field": "eletric_voltage"
+            }
+        }
+    }
+}
