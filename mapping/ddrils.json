@@ -3,9 +3,9 @@ PUT ddrills
 	"mappings": {
 		"product": {
 	  		"properties": {
-	    		"name": { "type": "text" },
-	    		"description": { "type": "text" },
-	    		"brand": { "type": "text" },
+	    		"name": { "type": "text", "fielddata": true },
+	    		"description": { "type": "text", "fielddata": true },
+	    		"brand": { "type": "text", "fielddata": true },
 	    		"price": { "type": "double" },
 	    		"images": { "type": "keyword" },
         		"rpm": {"type": "integer"},
@@ -17,7 +17,7 @@ PUT ddrills
 				"battery_type": {"type": "keyword"},
 				"mandrill_size": {"type": "keyword"},
 				"torque": {"type": "integer"},
-				"line": {"type": "text"}
+				"line": {"type": "text", "fielddata": true}
     		}
 		}
 	}
