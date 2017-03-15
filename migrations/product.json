@@ -186,4 +186,5 @@ PUT ddrills/product/10
     "battery_type": "",
     "mandrill_size": "1/2\"",
     "torque": 0,
+    "line": "Profissional"
 }
