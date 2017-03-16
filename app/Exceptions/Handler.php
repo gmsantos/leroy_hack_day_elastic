@@ -1,6 +1,6 @@
 <?php
 
-namespace Drills\Exceptions;
+namespace DDrills\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Drills\Providers;
+namespace DDrills\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
@@ -13,7 +13,7 @@ class AuthServiceProvider extends ServiceProvider
      * @var array
      */
     protected $policies = [
-        'Drills\Model' => 'Drills\Policies\ModelPolicy',
+        'DDrills\Model' => 'DDrills\Policies\ModelPolicy',
     ];
 
     /**

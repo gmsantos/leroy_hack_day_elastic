@@ -1,5 +1,5 @@
 <?php
-namespace Drills\Http\Controllers;
+namespace DDrills\Http\Controllers;
 
 use Illuminate\Http\Request;
 

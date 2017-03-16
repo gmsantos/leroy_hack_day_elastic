@@ -1,8 +1,8 @@
 <?php
 
-namespace Drills\Http\Controllers\Auth;
+namespace DDrills\Http\Controllers\Auth;
 
-use Drills\Http\Controllers\Controller;
+use DDrills\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 
 class LoginController extends Controller

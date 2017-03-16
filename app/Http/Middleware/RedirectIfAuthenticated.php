@@ -1,6 +1,6 @@
 <?php
 
-namespace Drills\Http\Middleware;
+namespace DDrills\Http\Middleware;
 
 use Closure;
 use Illuminate\Support\Facades\Auth;

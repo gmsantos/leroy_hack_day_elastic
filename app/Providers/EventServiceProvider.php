@@ -1,6 +1,6 @@
 <?php
 
-namespace Drills\Providers;
+namespace DDrills\Providers;
 
 use Illuminate\Support\Facades\Event;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -13,8 +13,8 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
-        'Drills\Events\SomeEvent' => [
-            'Drills\Listeners\EventListener',
+        'DDrills\Events\SomeEvent' => [
+            'DDrills\Listeners\EventListener',
         ],
     ];
 

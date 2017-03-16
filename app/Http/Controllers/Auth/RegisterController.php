@@ -1,9 +1,9 @@
 <?php
 
-namespace Drills\Http\Controllers\Auth;
+namespace DDrills\Http\Controllers\Auth;
 
-use Drills\User;
-use Drills\Http\Controllers\Controller;
+use DDrills\User;
+use DDrills\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 

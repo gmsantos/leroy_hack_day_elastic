@@ -1,6 +1,6 @@
 <?php
 
-namespace Drills\Http\Middleware;
+namespace DDrills\Http\Middleware;
 
 use Illuminate\Cookie\Middleware\EncryptCookies as BaseEncrypter;
 

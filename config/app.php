@@ -171,11 +171,11 @@ return [
         /*
          * Application Service Providers...
          */
-        Drills\Providers\AppServiceProvider::class,
-        Drills\Providers\AuthServiceProvider::class,
-        // Drills\Providers\BroadcastServiceProvider::class,
-        Drills\Providers\EventServiceProvider::class,
-        Drills\Providers\RouteServiceProvider::class,
+        DDrills\Providers\AppServiceProvider::class,
+        DDrills\Providers\AuthServiceProvider::class,
+        // DDrills\Providers\BroadcastServiceProvider::class,
+        DDrills\Providers\EventServiceProvider::class,
+        DDrills\Providers\RouteServiceProvider::class,
 
     ],
 

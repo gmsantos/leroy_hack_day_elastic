@@ -1,6 +1,6 @@
 <?php
 
-namespace Drills\Http\Controllers;
+namespace DDrills\Http\Controllers;
 
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;

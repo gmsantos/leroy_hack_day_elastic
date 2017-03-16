@@ -1,6 +1,6 @@
 <?php
 
-namespace Drills\Providers;
+namespace DDrills\Providers;
 
 use Illuminate\Support\ServiceProvider;
 

@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model' => Drills\User::class,
+        'model' => DDrills\User::class,
         'key' => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],
