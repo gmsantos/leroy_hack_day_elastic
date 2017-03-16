@@ -20,5 +20,8 @@
                 </div>
             </div>
         </section>
+        <div class="container is-fluid">
+            @yield('content')
+        </div>
     </body>
 </html>
