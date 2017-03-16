@@ -3,30 +3,28 @@
 @section('content')
     <div class="columns">
         <div class="column is-one-quarter">
-            <aside class="menu">
-                <p class="menu-label">Filtros</p>
-                <ul class="menu-list">
-                    <li><a>Alguns</a></li>
-                    <li><a>Filtros</a></li>
-                </ul>
-                <p class="menu-label">
-                    Outros Filtros
-                </p>
-                <ul class="menu-list">
-                    <li><a>Mais alguns</a></li>
-                    <li><a class="is-active">Filtro Selecionado</a></li>
-                    <li><a>Para então</a></li>
-                    <li><a>Testarmos</a></li>
-                </ul>
+            <aside class="menu" style="margin-top:20px">
+                @if ($queryString)
+                    <a href="{{ url('/') }}">Limpar  Filtros</a>
+                @endif
+                @foreach ($drills['aggregations'] as $facetName => $facets)
+                    <p class="menu-label">{{ $facetName }}</p>
+                    <ul class="menu-list">
+                        @foreach($facets['buckets'] as $bucket)
+                            <li>
+                                <a href="{{ url('/?'.http_build_query(array_merge($queryString, [$facetName => $bucket['key']]))) }}">{{ $bucket['key'] . ' ( ' . $bucket['doc_count'] . ' )'}}</a>
+                            </li>
+                        @endforeach
+                    </ul>
+                @endforeach
+            </aside>
         </div>
-        <div class="column">
+        <div class="column" style="margin-top: 20px">
             <?php $hits = $drills['hits']['hits']; ?>
-            <div class="">
-                <div>
-                    @foreach ($hits as $drill)
-                        @include('drills._product')
-                    @endforeach
-                </div>
+            <div>
+                @foreach ($hits as $drill)
+                    @include('drills._product')
+                @endforeach
             </div>
         </div>
     </div>

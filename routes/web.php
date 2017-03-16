@@ -13,3 +13,4 @@
 
 Route::get('/', 'DrillsController@index');
 Route::get('drill/{id}', 'DrillsController@details');
+Route::get('/{facet}/{key}', ['as' => 'drillsFilter', 'uses' => 'DrillsController@filter']);

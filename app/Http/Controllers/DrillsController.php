@@ -31,9 +31,18 @@ class DrillsController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $drills = $this->drill->all();
+        $queryString = $request->all();
+
+        $drills = $this->drill->all($queryString);
+
+        return view('drills.index', compact('drills', 'queryString'));
+    }
+
+    public function filter($facetName, $facetKey)
+    {
+        $drills = $this->drill->getFiltered($facetName, $facetKey);
 
         return view('drills.index', compact('drills'));
     }

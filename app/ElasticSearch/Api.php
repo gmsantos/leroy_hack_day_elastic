@@ -49,9 +49,9 @@ class Api
      *
      * @return array
      */
-    public function all(string $type): array
+    public function all(string $type, array $params = []): array
     {
-        return $this->search($type);
+        return $this->search($type, $params);
     }
 
     /**
@@ -66,9 +66,32 @@ class Api
     {
         $url = $this->parseUrl($url) . '/_search';
 
-        $response = $this->http->get($url, $params);
+        $params = $this->parseParams($params);
+
+        $response = $this->http->request('get', $url, ['json' => $params]);
 
         return $this->parseResponse($response);
+    }
+
+    public function parseParams(array $params): array
+    {
+        return array_merge(
+            $params,
+            [
+                'aggregations' => [
+                    'line' => [
+                        'terms' => [
+                            'field' => 'line'
+                        ]
+                    ],
+                    'eletric_voltage' => [
+                        'terms' => [
+                            'field' => 'eletric_voltage'
+                        ]
+                    ]
+                ]
+            ]
+        );
     }
 
     /**

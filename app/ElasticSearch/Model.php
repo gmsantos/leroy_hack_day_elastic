@@ -37,19 +37,54 @@ abstract class Model
         return $this->api->find($this->getTypeName(), $id);
     }
 
-
     /**
      * Get all products on the ElasticSearch
      *
      * @return collection
      */
-    public function all(): Collection
+    public function all($terms): Collection
     {
         $type = $this->getTypeName();
 
-        $products = $this->api->all($type);
+        $params = $this->buildTerms($terms);
+
+        $products = $this->api->all($type, $params);
 
         return collect($products);
+    }
+
+    public function getFiltered(string $facetName, string $facetKey): Collection
+    {
+        $type = $this->getTypeName();
+
+
+
+        $products = $this->api->all($type, $params);
+
+        return collect($products);
+    }
+
+    public function buildTerms(array $terms)
+    {
+        if (!$terms) {
+            return [];
+        }
+
+        foreach ($terms as $key => $value) {
+            $filters[] = [
+                'term' => [$key => $value]
+            ];
+        }
+
+        $params = [
+            'query' => [
+                'bool' => [
+                    'must' => $filters,
+                ],
+            ],
+        ];
+
+        return $params ?? [];
     }
 
     /**
