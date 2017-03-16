@@ -5,7 +5,8 @@
         <div class="column is-one-quarter">
             <aside class="menu" style="margin-top:20px">
                 @if ($queryString)
-                    <a href="{{ url('/') }}">Limpar  Filtros</a>
+                    <a class="button is-danger" href="{{ url('/') }}">
+                        <i class="fa fa-trash">&nbsp;</i> Clean Filters</a>
                 @endif
                 @foreach ($drills['aggregations'] as $facetName => $facets)
                     <p class="menu-label">{{ $facetName }}</p>

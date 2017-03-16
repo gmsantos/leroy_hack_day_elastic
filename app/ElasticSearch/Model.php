@@ -57,8 +57,6 @@ abstract class Model
     {
         $type = $this->getTypeName();
 
-
-
         $products = $this->api->all($type, $params);
 
         return collect($products);
@@ -71,9 +69,12 @@ abstract class Model
         }
 
         foreach ($terms as $key => $value) {
-            $filters[] = [
-                'term' => [$key => $value]
-            ];
+            $uniqueTerms = explode(' ', $value);
+            foreach ($uniqueTerms as $term) {
+                $filters[] = [
+                    'term' => [$key => $term]
+                ];
+            }
         }
 
         $params = [

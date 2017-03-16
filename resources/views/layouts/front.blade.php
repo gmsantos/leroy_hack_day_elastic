@@ -12,13 +12,38 @@
         <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <body>
-        <section class="hero is-small is-primary is-bold">
-            <div class="hero-body">
+            <section class="hero is-primary">
+              <div class="hero-body">
                 <div class="container">
-                    <h1 class="title">DDrills</h1>
-                    <h2 class="subtitle">The home of your holes</h2>
+                  <div id="mc_embed_signup" class="columns is-vcentered">
+                    <div class="column is-one-third is-left">
+                        <p class="title">Welcome to <strong>DDrills</strong></p>
+                        <p class="subtitle">The home of your holes</p>
+                    </div>
+                    <div class="column">
+                        <form action="{{ url('/') }}">
+                            <div>
+                                <div class="field is-grouped">
+                                    <div class="control has-icon is-expanded">
+                                        <input type="name" name="name" class="input is-flat required">
+                                        <span class="icon is-small">
+                                            <i class="fa fa-search"></i>
+                                        </span>
+                                    </div>
+                                    <div class="control">
+                                        <input type="submit" value="Search" class="button is-white is-outlined">
+                                    </div>
+                                </div>
+                                <div>
+                          </div>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                  <!--End mc_embed_signup-->
                 </div>
-            </div>
+              </div>
+            </section>
         </section>
         <div class="container is-fluid">
             @yield('content')
