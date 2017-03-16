@@ -72,7 +72,7 @@ abstract class Model
             $uniqueTerms = explode(' ', $value);
             foreach ($uniqueTerms as $term) {
                 $filters[] = [
-                    'term' => [$key => $term]
+                    'term' => [$key => strtolower($term)]
                 ];
             }
         }

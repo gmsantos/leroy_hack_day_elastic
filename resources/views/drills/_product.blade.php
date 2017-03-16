@@ -1,4 +1,7 @@
-<?php $drill = $drill['_source']; ?>
+<?php
+    $id = $drill['_id'];
+    $drill = $drill['_source'];
+?>
 <div class="box">
     <article class="media">
         <div class="media-left">
@@ -13,7 +16,7 @@
                 {{ $drill['description']}}
                 </p>
             </div>
-            <a href="#" class="button is-primary">Comprar!</a>
+            <a href="{{ route('productDetails', $id) }}" class="button is-primary">Comprar!</a>
         </div>
     </article>
 </div>

@@ -56,6 +56,6 @@ class DrillsController extends Controller
     {
         $drill = $this->drill->find($id);
 
-        return view('drills.index', compact('drill'));
+        return view('drills.details', compact('drill'));
     }
 }

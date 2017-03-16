@@ -35,8 +35,7 @@ class Api
      */
     public function find(string $type, int $id): array
     {
-        $url = sprintf('%s/%s', $this->parseUrl(), $id);
-
+        $url = sprintf('%s/%s', $this->parseUrl($type), $id);
         $response = $this->http->get($url);
 
         return $this->parseResponse($response);
@@ -88,7 +87,27 @@ class Api
                         'terms' => [
                             'field' => 'eletric_voltage'
                         ]
-                    ]
+                    ],
+                    'brand' => [
+                        'terms' => [
+                            'field' => 'brand'
+                        ]
+                    ],
+                    'indicated_use' => [
+                        'terms' => [
+                            'field' => 'indicated_use'
+                        ]
+                    ],
+                    'rpm' => [
+                        'terms' => [
+                            'field' => 'rpm'
+                        ]
+                    ],
+                    'power' => [
+                        'terms' => [
+                            'field' => 'power'
+                        ]
+                    ],
                 ]
             ]
         );
