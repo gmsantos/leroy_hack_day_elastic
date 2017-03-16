@@ -35,7 +35,23 @@ class Api
      */
     public function find(string $type, int $id): array
     {
-        return $this->search("{$type}/{$id}");
+        $url = sprintf('%s/%s', $this->parseUrl(), $id);
+
+        $response = $this->http->get($url);
+
+        return $this->parseResponse($response);
+    }
+
+    /**
+     * Find all objects from the given type.
+     *
+     * @param string $type
+     *
+     * @return array
+     */
+    public function all(string $type): array
+    {
+        return $this->search($type);
     }
 
     /**
@@ -48,8 +64,22 @@ class Api
      */
     protected function search($url, array $params = []): array
     {
-        $response = $this->http->get($this->parseUrl($url), $params);
+        $url = $this->parseUrl($url) . '/_search';
 
+        $response = $this->http->get($url, $params);
+
+        return $this->parseResponse($response);
+    }
+
+    /**
+     * Parse the response from guzzle http client
+     *
+     * @param  Response $response
+     *
+     * @return array
+     */
+    public function parseResponse($response): array
+    {
         if ($response->getStatusCode() === 200) {
             $jsonResponse = json_decode(
                 $response->getBody()->getContents(),
@@ -67,7 +97,7 @@ class Api
      *
      * @return string
      */
-    public function parseUrl(string $url): string
+    protected function parseUrl(string $url): string
     {
         return "es:9200/ddrills/{$url}";
     }

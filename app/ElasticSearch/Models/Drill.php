@@ -8,10 +8,4 @@ use DDrills\ElasticSearch\Model;
  */
 class Drill extends Model
 {
-    /**
-     * Name of the type ( table/collection ).
-     *
-     * @var string
-     */
-    protected $typeName = 'product';
 }

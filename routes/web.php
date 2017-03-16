@@ -12,3 +12,4 @@
 */
 
 Route::get('/', 'DrillsController@index');
+Route::get('drill/{id}', 'DrillsController@details');

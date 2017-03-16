@@ -33,7 +33,9 @@ class DrillsController extends Controller
      */
     public function index()
     {
-        return view('drills.index');
+        $drills = $this->drill->all();
+
+        return view('drills.index', compact('drills'));
     }
 
     /**

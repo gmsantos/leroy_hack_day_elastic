@@ -22,18 +22,11 @@
         <div class="column">
             <div class="tile is-ancestor">
                 <div class="tile is-parent">
-                    <div class="tile is-3 is-parent">
-                        @include('drills._product')
-                    </div>
-                    <div class="tile is-3 is-parent">
-                        @include('drills._product')
-                    </div>
-                    <div class="tile is-3 is-parent">
-                        @include('drills._product')
-                    </div>
-                    <div class="tile is-3 is-parent">
-                        @include('drills._product')
-                    </div>
+                    @for ($i = 0 ; $i < sizeof($drills['hits']['hits']) ; $i++)
+                        <div class="tile">
+                            @include('drills._product')
+                        </div>
+                    @endfor
                 </div>
             </div>
         </div>

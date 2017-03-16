@@ -16,7 +16,7 @@ abstract class Model
     protected $api;
 
     /**
-     * Elastic model constructor
+   all El$stic model constructor
      *
      * @param Api $api
      */
@@ -47,7 +47,7 @@ abstract class Model
     {
         $type = $this->getTypeName();
 
-        $products = $this->api->search($type);
+        $products = $this->api->all($type);
 
         return collect($products);
     }
@@ -59,10 +59,26 @@ abstract class Model
      */
     protected function getTypeName(): string
     {
-        if ($this->typeName) {
+        if (isset($this->typeName)) {
             return $this->typeName;
         }
 
-        return strtolower(get_class($this));
+        return $this->getModelNameBasedOnClassName();
+    }
+
+    /**
+     * Given a fqn class, returns the class name in lowercase.
+     *
+     * @example
+     *     From: DDrills\ElasticSearch\Models\Drill
+     *     To: drill
+     *
+     * @return string
+     */
+    public function getModelNameBasedOnClassName(): string
+    {
+        $fqn = explode("\\", get_class($this));
+
+        return strtolower(end($fqn));
     }
 }
