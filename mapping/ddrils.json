@@ -1,7 +1,7 @@
 PUT ddrills
 {
 	"mappings": {
-		"product": {
+		"drill": {
 	  		"properties": {
 	    		"name": { "type": "text", "fielddata": true },
 	    		"description": { "type": "text", "fielddata": true },
@@ -17,7 +17,8 @@ PUT ddrills
 				"battery_type": {"type": "keyword"},
 				"mandrill_size": {"type": "keyword"},
 				"torque": {"type": "integer"},
-				"line": {"type": "text", "fielddata": true}
+				"line": {"type": "text", "fielddata": true},
+				"suggest" : { "type" : "completion" },
     		}
 		}
 	}
