@@ -20,13 +20,12 @@
                 </ul>
         </div>
         <div class="column">
-            <div class="tile is-ancestor">
-                <div class="tile is-parent">
-                    @for ($i = 0 ; $i < sizeof($drills['hits']['hits']) ; $i++)
-                        <div class="tile">
-                            @include('drills._product')
-                        </div>
-                    @endfor
+            <?php $hits = $drills['hits']['hits']; ?>
+            <div class="">
+                <div>
+                    @foreach ($hits as $drill)
+                        @include('drills._product')
+                    @endforeach
                 </div>
             </div>
         </div>
