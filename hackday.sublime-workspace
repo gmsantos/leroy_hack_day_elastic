@@ -4,6 +4,26 @@
 		"selected_items":
 		[
 			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"fa",
+				"facetKey"
+			],
+			[
+				"facet",
+				"facetKey"
+			],
+			[
+				"face",
+				"facetName"
+			],
+			[
+				"json",
+				"json_decode"
+			],
+			[
 				"Cursro",
 				"CursorInterface"
 			],
@@ -63,6 +83,136 @@
 	},
 	"buffers":
 	[
+		{
+			"file": "routes/web.php",
+			"settings":
+			{
+				"buffer_size": 575,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/Http/Controllers/DrillsController.php",
+			"settings":
+			{
+				"buffer_size": 1173,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/ElasticSearch/Model.php",
+			"settings":
+			{
+				"buffer_size": 2427,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nGET ddrills/product/1\n\nPUT ddrills\n{\n    \"mappings\": {\n        \"drill\": {\n            \"properties\": {\n                \"name\": { \"type\": \"text\", \"fielddata\": true },\n                \"description\": { \"type\": \"text\", \"fielddata\": true                     },\n                \"brand\": { \"type\": \"text\", \"fielddata\": true },\n                \"price\": { \"type\": \"double\" },\n                \"images\": { \"type\": \"keyword\" },\n                \"rpm\": {\"type\": \"integer\"},\n                \"color\": {\"type\": \"keyword\"},\n                \"eletric_voltage\": {\"type\": \"keyword\"},\n                \"indicated_use\": {\"type\": \"keyword\"},\n                \"power\": {\"type\": \"integer\"},\n                \"power_supply\": {\"type\": \"keyword\"},\n                \"battery_type\": {\"type\": \"keyword\"},\n                \"mandrill_size\": {\"type\": \"keyword\"},\n                \"torque\": {\"type\": \"integer\"},\n                \"line\": {\"type\": \"text\", \"fielddata\": true},\n                \"suggest\" : { \"type\" : \"completion\" }\n            }\n        }\n    }\n}\n\nGET ddrills/product/_search\n{\n    \"query\": {\n        \"term\": {\n            \"brand\": \"bosch\"\n        }\n    },\n    \"aggregations\": {\n        \"line\": {\n            \"terms\": {\n                \"field\": \"line\"\n            }\n        },\n        \"eletric_voltage\": {\n            \"terms\": {\n                \"field\": \"eletric_voltage\"\n            }\n        }\n    }\n}\n\nGET ddrills/product/_search\n{\n    \"query\": {\n        \"bool\" : {\n            \"must\" : [\n                {\"term\" : { \"brand\" : \"bosch\" } },\n                {\"term\" : { \"line\" : \"profissional\" } }\n            ]\n        }\n    }\n}\nPUT ddrills\n{\n    \"mappings\": {\n        \"product\": {\n            \"properties\": {\n                \"name\": { \"type\": \"text\", \"fielddata\": true },\n                \"description\": { \"type\": \"text\", \"fielddata\": true },\n                \"brand\": { \"type\": \"text\", \"fielddata\": true },\n                \"price\": { \"type\": \"double\" },\n                \"images\": { \"type\": \"keyword\" },\n                \"rpm\": {\"type\": \"integer\"},\n                \"color\": {\"type\": \"keyword\"},\n                \"eletric_voltage\": {\"type\": \"keyword\"},\n                \"indicated_use\": {\"type\": \"keyword\"},\n                \"power\": {\"type\": \"integer\"},\n                \"power_supply\": {\"type\": \"keyword\"},\n                \"battery_type\": {\"type\": \"keyword\"},\n                \"mandrill_size\": {\"type\": \"keyword\"},\n                \"torque\": {\"type\": \"integer\"},\n                \"line\": {\"type\": \"text\", \"fielddata\": true}\n            }\n        }\n    }\n}\n\nPUT ddrills/product/1\n{\n    \"name\": \"Parafusadeira e Furadeira 3/8\\\" 1,5V GSB 12002 LI 250V (220V) Bosch\",\n    \"description\": \"Parafusadeira e Furadeira\",\n    \"brand\": \"Bosch\",\n    \"price\": 539.90,\n    \"images\": [\"https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/parafuradeira_e_furadeira_bateria_12v_gsb1200_2li_250v__220v__bosch_89309871_9e06_600x600.jpg\"],\n    \"rpm\": 1300,\n    \"color\": \"azul\",\n    \"eletric_voltage\": \"220V\",\n    \"indicated_use\": [\"Alvenaria Vazada\", \"Metal\", \"Madeira\"],\n    \"power\": 0,\n    \"power_supply\": \"Bateria\",\n    \"battery_type\": \"íons-lítio\",\n    \"torque\": 28,\n    \"line\": \"Profissional\"\n}\n\n\nPUT ddrills/product/2\n{\n    \"name\": \"Parafusadeira e Furadeira 3/8\\\" 9,6V CD961-BR Bivolt Black & Decker\",\n    \"description\": \"Parafusadeira e Furadeira\",\n    \"brand\": \"Black & Decker\",\n    \"price\": 164.90,\n    \"images\": [\"https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/furadeira_e_parafusadeira_3_8_a_bateria_bivolt_9_6v_blackedecker_86908794_0001_600x600.jpg\"],\n    \"rpm\": 1300,\n    \"color\": \"laranja\",\n    \"eletric_voltage\": \"bivolt\",\n    \"indicated_use\": [\"Metal\", \"Madeira\"],\n    \"mandrill_size\": \"3/8\\\"\",\n    \"power\": 0,\n    \"power_supply\": \"Bateria\",\n    \"battery_type\": \"íons-lítio\",\n    \"mandrill_size\": \"3/8\\\"\",\n    \"torque\": 6,\n    \"line\": \"Hobista\"\n}\n\nPUT ddrills/product/3\n{\n    \"name\": \"Parafusadeira e Furadeira 3/8\\\" 1,5V GSB 12002 LI 127V (110V) Bosch\",\n    \"description\": \"Parafusadeira e Furadeira\",\n    \"brand\": \"Bosch\",\n    \"price\": 539.90,\n    \"images\": [\"https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/parafuradeira_e_furadeira_bateria_12v_gsb1200_2li_127v__110v__bosch_89309864_98f7_600x600.jpg\"],\n    \"rpm\": 1300,\n    \"color\": \"azul\",\n    \"eletric_voltage\": \"110v\",\n    \"indicated_use\": [\"Alvenaria Vazada\", \"Metal\", \"Madeira\"],\n    \"power\": 0,\n    \"power_supply\": \"Bateria\",\n    \"battery_type\": \"íons-lítio\",\n    \"mandrill_size\": \"3/8\\\"\",\n    \"torque\": 28,\n    \"line\": \"Profissional\"\n}\n\nPUT ddrills/product/4\n{\n    \"name\": \"Parafusadeira e Furadeira 1/4\\\" 400W GSR 714E 127V (110V) Bosch\",\n    \"description\": \"Parafusadeira e Furadeira\",\n    \"brand\": \"Bosch\",\n    \"price\": 188.90,\n    \"images\": [\"https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/furadeira_e_parafusadeira__a_cabo_gsr7_14_e_127v_89125106_0001_600x600.jpg\"],\n    \"rpm\": 1400,\n    \"color\": \"azul\",\n    \"eletric_voltage\": \"110v\",\n    \"indicated_use\": [\"Metal\", \"Madeira\"],\n    \"power\": 400,\n    \"power_supply\": \"Bateria\",\n    \"battery_type\": \"íons-lítio\",\n    \"mandrill_size\": \"1/4\\\"\",\n    \"torque\": 10,\n    \"line\": \"Profissional\"\n}\n\nPUT ddrills/product/5\n{\n    \"name\": \"Kit Ferramentas Parafusadeira e Furadeira de Impacto CLX202SAX 12V Makita\",\n    \"description\": \"Parafusadeira e Furadeira\",\n    \"brand\": \"Makita\",\n    \"price\": 949.90,\n    \"images\": [\"https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/combo_ferramentas_12v_bivolt_clx202sax_makita_89442346_0001_600x600.jpg\"],\n    \"rpm\": 1700,\n    \"color\": \"azul e preto\",\n    \"eletric_voltage\": \"bivolt\",\n    \"indicated_use\": [\"Alvenaria Vazada\", \"Metal\", \"Madeira\"],\n    \"power\": 400,\n    \"power_supply\": \"Bateria\",\n    \"battery_type\": \"íons-lítio\",\n    \"mandrill_size\": \"3/8\\\"\",\n    \"torque\": 14,\n    \"line\": \"Profissional\"\n}\n\nPUT ddrills/product/6\n{\n    \"name\": \"Furadeira de Impacto 1/2\\\" 710 WP 1630K 127V (110V) Makita\",\n    \"description\": \"Furadeira de Impacto\",\n    \"brand\": \"Makita\",\n    \"price\": 369.90,\n    \"images\": [\"https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/furadeira_de_impacto_710w_127v__110v__hp_1630_makita_89264252_0001_600x600.jpg\"],\n    \"rpm\": 3200,\n    \"color\": \"azul\",\n    \"eletric_voltage\": \"110V\",\n    \"indicated_use\": [\"Concreto\", \"Alvenaria Vazada\", \"Metal\", \"Madeira\"],\n    \"power\": 710,\n    \"power_supply\": \"Rede Elétrica\",\n    \"battery_type\": \"\",\n    \"mandrill_size\": \"1/2\\\"\",\n    \"torque\": 28,\n    \"line\": \"Profissional\"\n}\n\nPUT ddrills/product/7\n{\n    \"name\": \"Furadeira de Impacto 1/2\\\" 810W IC810ID 250V (220V) Dexter e Jogo de Brocas 8 pçs Concreto Dexter\",\n    \"description\": \"Kit Furadeira de Impacto\",\n    \"brand\": \"Dexter\",\n    \"price\": 219.80,\n    \"images\": [\"https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/furadeira_de_impacto_810w_250v__220v__dexter___jogo_de_brocas_8_pcs_concreto_dexter_5710437131_0001_600x600.jpg\"],\n    \"rpm\": 2800,\n    \"color\": \"azul\",\n    \"eletric_voltage\": \"220V\",\n    \"indicated_use\": [\"Concreto\", \"Alvenaria Vazada\", \"Metal\", \"Madeira\"],\n    \"power\": 810,\n    \"power_supply\": \"Rede Elétrica\",\n    \"battery_type\": \"\",\n    \"mandrill_size\": \"1/2\\\"\",\n    \"torque\": 0,\n    \"line\": \"Hobista\"\n}\n\nPUT ddrills/product/8\n{\n    \"name\": \"Furadeira de Impacto 3/8\\\" 570W 6550 250V (220V) Skil\",\n    \"description\": \"Furadeira de Impacto\",\n    \"brand\": \"Skil\",\n    \"price\": 99.90,\n    \"images\": [\"https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/furadeira_de_impacto_3_8_570w_250v__220v__6550_skil_88394803_4227_600x600.jpg\"],\n    \"rpm\": 2800,\n    \"color\": \"azul\",\n    \"eletric_voltage\": \"220V\",\n    \"indicated_use\": [\"Alvenaria Vazada\", \"Metal\", \"Madeira\"],\n    \"power\": 570,\n    \"power_supply\": \"Rede Elétrica\",\n    \"battery_type\": \"\",\n    \"mandrill_size\": \"3/8\\\"\",\n    \"torque\": 0,\n    \"line\": \"Hobista\"\n}\n\nPUT ddrills/product/9\n{\n    \"name\": \"Furadeira de Impacto 1/2\\\" 650W GSB13RE com maleta 127V(110V) Bosch\",\n    \"description\": \"Furadeira de Impacto\",\n    \"brand\": \"Bosch\",\n    \"price\": 289.90,\n    \"images\": [\"https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/furadeira_de_impacto_650w_127v_110v__gsb13re_com_maleta_bosch_89309843_0001_600x600.jpg\"],\n    \"rpm\": 1300,\n    \"color\": \"azul\",\n    \"eletric_voltage\": \"220V\",\n    \"indicated_use\": [\"Concreto\",\"Alvenaria Vazada\", \"Metal\", \"Madeira\"],\n    \"power\": 650,\n    \"power_supply\": \"Rede Elétrica\",\n    \"battery_type\": \"\",\n    \"mandrill_size\": \"1/2\\\"\",\n    \"torque\": 28,\n    \"line\": \"Profissional\"\n}\n\nPUT ddrills/product/10\n{\n    \"name\": \"Furadeira de Impacto 1/2\\\" 650W DWD502 B2 com kit brocas 220V (220V) Dewalt\",\n    \"description\": \"Furadeira de Impacto\",\n    \"brand\": \"Dewalt\",\n    \"price\": 307.00,\n    \"images\": [\"https://s3-sa-east-1.amazonaws.com/leroy-production//uploads/img/products/furadeira_de_impacto_de_1_2_dwd502_b2_650w_220v__220v__com_kit_brocas_dewalt_89371562_1aa0_600x600.jpg\"],\n    \"rpm\": 2600,\n    \"color\": \"amarela\",\n    \"eletric_voltage\": \"220V\",\n    \"indicated_use\": [\"Concreto\", \"Alvenaria Vazada\", \"Metal\", \"Madeira\"],\n    \"power\": 650,\n    \"power_supply\": \"Rede Elétrica\",\n    \"battery_type\": \"\",\n    \"mandrill_size\": \"1/2\\\"\",\n    \"torque\": 0,\n    \"line\": \"Profissional\"\n}\n\nPUT ddrills\n{\n    \"mappings\": {\n        \"product\": {\n            \"properties\": {\n                \"name\": { \"type\": \"text\" },\n                \"description\": { \"type\": \"text\" },\n                \"brand\": { \"type\": \"text\" },\n                \"price\": { \"type\": \"double\" },\n                \"images\": { \"type\": \"keyword\" },\n                \"rpm\": {\"type\": \"integer\"},\n                \"color\": {\"type\": \"keyword\"},\n                \"eletric_voltage\": {\"type\": \"keyword\"},\n                \"indicated_use\": {\"type\": \"keyword\"},\n                \"power\": {\"type\": \"integer\"},\n                \"power_supply\": {\"type\": \"keyword\"},\n                \"battery_type\": {\"type\": \"keyword\"},\n                \"mandrill_size\": {\"type\": \"keyword\"},\n                \"torque\": {\"type\": \"integer\"},\n                \"line\": {\"type\": \"text\"}\n            }\n        }\n    }\n}\n\n\nGET ddrills/characteristic/_mapping\nGET ddrills/characteristic/_search\n{\n    \"query\": {\n        \"match\": {\n            \"power\": 700\n        }\n    }\n}\n\nPUT ddrills/characteristic/1\n{\n    \"rpm\": 3000,\n    \"color\": \"Azul\",\n    \"eletric_voltage\": 127,\n    \"eletric_current\": 3,\n    \"indicated_use\": \"Madeira, Metal, Parede\",\n    \"power\": \"700\",\n    \"power_supply\": \"Bateria\",\n    \"battery_type\": \"ìons-lítio\",\n    \"mandrill_size\": \"keyword\",\n    \"torque\": \"10\",\n    \"line\": \"Profissional\"\n}\n\nPUT ddrills/_mapping/characteristic\n{\n    \"properties\": {\n        \"rpm\": {\"type\": \"integer\"},\n        \"color\": {\"type\": \"keyword\"},\n        \"eletric_voltage\":{\"type\": \"integer\"},\n        \"eletric_current\": {\"type\": \"integer\"},\n        \"indicated_use\": {\"type\": \"keyword\"},\n        \"power\": {\"type\": \"integer\"},\n        \"power_supply\": {\"type\": \"keyword\"},\n        \"battery_type\": {\"type\": \"keyword\"},\n        \"mandrill_size\": {\"type\": \"keyword\"},\n        \"torque\": {\"type\": \"integer\"},\n        \"line\": {\"type\": \"text\"}\n    }\n}\n\nGET _analyze\n{\n    \"analyzer\": \"standard\",\n    \"text\": \"Hey Tiu Eater! Félix\"\n}\n\n\nGET twitter/tweet/_search\n{\n    \"query\": {\n        \"match\": {\n            \"user\": \"Diego Felix\"\n        }\n    }\n}\n\nGET twitter/tweet/_search\n{\n    \"query\": {\n        \"term\": {\n            \"user\": \"diego\"\n        }\n    }\n}\n\nPUT twitter/tweet/1\n{\n    \"user\": \"Diego Felix\",\n    \"post_date\" : \"2009-11-15T14:12:12\",\n    \"message\": \"Hey Tiu Eater\"\n}\n\nGET twitter/tweet/_mapping\n\n\n\n\n\n\n\n\n\n\n\n\nGET dev/products/_search\n{\n   \"query\": {\n      \"match_all\": []\n   }, \n   \"filter\": {\n        \"bool\": {\n            \"should\": [\n                {\n                    \"and\": [\n                        {\n                            \"terms\": {\n                                \"status\": [\n                                    \"Ativo\"\n                                ]\n                            }\n                        }\n                    ]\n                }\n            ]\n        }\n   }\n}\n\nGET dev/products/_search\n{\n   \"query\": {\n      \"terms\": {\n         \"status\": [\n            \"Ativo\"\n         ]\n      }\n   }\n}\n\n\nGET _search\n{ \n\"query\":{  \n      \"filtered\":{  \n         \"query\":{  \n            \"multi_match\":{  \n               \"fields\":[  \n                  \"sale_order_id.search\",\n                  \"customer.cpf\",\n                  \"customer.name.search\",\n                  \"customer.name.autocomplete\",\n                  \"payment_methods.bank_slip_number\"\n               ],\n               \"query\": \"E132E7D5421AI\",\n               \"tie_breaker\":0.5,\n               \"operator\":\"and\",\n               \"type\":\"most_fields\"\n            }\n         }\n      }\n   }\n}\n\nGET _search\n{\n   \"query\": {\n      \"match_all\": {}\n   }\n}\n\n\nGET dev/products/_search\n{\n   \"query\": {\n      \"match_all\": []\n   },\n   \"filter\": {\n      \"bool\": {\n         \"should\": [\n            {\n               \"and\": [\n                  {\n                     \"terms\": {\n                        \"productBank\": [\n                           \"522f9f1d64063fe1198b456b\"\n                        ]\n                     }\n                  },\n                  {\n                     \"term\": {\n                        \"characteristics.tipo.as_string\": \"Unifoto\"\n                     }\n                  }\n               ]\n            },\n            {\n               \"and\": [\n                  {\n                     \"terms\": {\n                        \"productBank\": [\n                           \"5384b9e6763f3a426b16851a\"\n                        ]\n                     }\n                  },\n                  {\n                     \"term\": {\n                        \"characteristics.material.as_string\": \"Plástico\"\n                     }\n                  }\n               ]\n            }\n         ],\n         \"must\": [\n            {\n               \"terms\": {\n                  \"productBank\": [\n                     \"522f9f1d64063fe1198b456b\",\n                     \"5384b9e6763f3a426b16851a\"\n                  ]\n               }\n            },\n            {\n               \"not\": {\n                  \"filter\": {\n                     \"ids\": {\n                        \"values\": [\n                           86970205\n                        ]\n                     }\n                  }\n               }\n            }\n         ]\n      }\n   },\n   \"size\": 10,\n   \"from\": 0\n}",
+			"settings":
+			{
+				"buffer_size": 14410,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "app/ElasticSearch/Api.php",
+			"settings":
+			{
+				"buffer_size": 3409,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<?php\nnamespace DDrills\\Api;\n\n/**\n* Class responsible for facilitating queries on the Elastic Search.\n*/\nclass ElasticApi\n{\n    /**\n     * Guzzle http client\n     *\n     * @var Client\n     */\n    protected $http;\n\n    /**\n     * Elastic Api Constructor\n     *\n     * @param Client $http Guzzle Http client\n     */\n    function __construct(Client $http)\n    {\n        $this->http = $http;\n    }\n}",
+			"file": "Api/ElasticApi.php",
+			"file_size": 395,
+			"file_write_time": 131341410045451407,
+			"settings":
+			{
+				"buffer_size": 395,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/drills/index.blade.php",
+			"settings":
+			{
+				"buffer_size": 1309,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/drills/details.blade.php",
+			"settings":
+			{
+				"buffer_size": 833,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "PUT ddrills\n{\n\t\"mappings\": {\n\t\t\"drill\": {\n\t  \t\t\"properties\": {\n\t    \t\t\"name\": { \"type\": \"text\", \"fielddata\": true, \"analyzer\": \"autocomplete\", \"search_analyzer\": \"standard\" },\n\t    \t\t\"description\": { \"type\": \"text\", \"fielddata\": true },\n\t    \t\t\"brand\": { \"type\": \"text\", \"fielddata\": true, \"index\": \"not_analyzed\" },\n\t    \t\t\"price\": { \"type\": \"double\" },\n\t    \t\t\"images\": { \"type\": \"keyword\" },\n        \t\t\"rpm\": {\"type\": \"integer\"},\n\t\t\t\t\"color\": {\"type\": \"keyword\"},\n\t\t\t\t\"eletric_voltage\": {\"type\": \"keyword\"},\n\t\t\t\t\"indicated_use\": {\"type\": \"keyword\"},\n\t\t\t\t\"power\": {\"type\": \"integer\"},\n\t\t\t\t\"power_supply\": {\"type\": \"keyword\"},\n\t\t\t\t\"battery_type\": {\"type\": \"keyword\"},\n\t\t\t\t\"mandrill_size\": {\"type\": \"keyword\"},\n\t\t\t\t\"torque\": {\"type\": \"integer\"},\n\t\t\t\t\"line\": {\"type\": \"text\", \"fielddata\": true},\n    \t\t}\n\t\t}\n\t},\n\t\"settings\": {\n        \"number_of_shards\": 1,\n        \"analysis\": {\n            \"filter\": {\n                \"autocomplete_filter\": {\n                    \"type\":     \"edge_ngram\",\n                    \"min_gram\": 3,\n                    \"max_gram\": 20\n                }\n            },\n            \"analyzer\": {\n                \"autocomplete\": {\n                    \"type\":      \"custom\",\n                    \"tokenizer\": \"standard\",\n                    \"filter\": [\n                        \"lowercase\",\n                        \"autocomplete_filter\"\n                    ]\n                }\n            }\n        }\n    }\n}",
+			"file": "mapping/ddrils.json",
+			"file_size": 1401,
+			"file_write_time": 131341669878564365,
+			"settings":
+			{
+				"buffer_size": 1427,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "migrations/migration_drill.json",
+			"settings":
+			{
+				"buffer_size": 6545,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "",
+			"settings":
+			{
+				"buffer_size": 0,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/layouts/front.blade.php",
+			"settings":
+			{
+				"buffer_size": 2353,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "resources/views/drills/_product.blade.php",
+			"settings":
+			{
+				"buffer_size": 655,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": ".env.example",
+			"settings":
+			{
+				"buffer_size": 549,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"build_system_choices":
@@ -71,25 +221,45 @@
 	"build_varint": "",
 	"command_palette":
 	{
-		"height": 71.0,
-		"last_filter": "json",
+		"height": 320.0,
+		"last_filter": "new",
 		"selected_items":
 		[
 			[
-				"json",
-				"Set Syntax: JSON"
+				"new",
+				"ANF: New File"
+			],
+			[
+				"phpcom",
+				"PHPCompanion:Import Namespace"
+			],
+			[
+				"find",
+				"PHPCompanion:Find Use"
+			],
+			[
+				"new file",
+				"ANF: New File"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"html",
+				"HTML: Encode Special Characters"
 			],
 			[
 				"php",
 				"Set Syntax: PHP"
 			],
 			[
-				"twi",
-				"Set Syntax: HTML (Twig)"
+				"json",
+				"Set Syntax: JSON"
 			],
 			[
-				"install",
-				"Package Control: Install Package"
+				"twi",
+				"Set Syntax: HTML (Twig)"
 			],
 			[
 				"remove",
@@ -116,7 +286,7 @@
 				"Set Syntax: XML"
 			]
 		],
-		"width": 453.0
+		"width": 543.0
 	},
 	"console":
 	{
@@ -136,10 +306,35 @@
 	},
 	"expanded_folders":
 	[
-		"/home/diego-felix/code/leroy_hack_day_elastic"
+		"/home/diego-felix/code/leroy_hack_day_elastic",
+		"/home/diego-felix/code/leroy_hack_day_elastic/app/ElasticSearch",
+		"/home/diego-felix/code/leroy_hack_day_elastic/app/ElasticSearch/Models",
+		"/home/diego-felix/code/leroy_hack_day_elastic/mapping",
+		"/home/diego-felix/code/leroy_hack_day_elastic/migrations",
+		"/home/diego-felix/code/leroy_hack_day_elastic/resources/views",
+		"/home/diego-felix/code/leroy_hack_day_elastic/resources/views/drills",
+		"/home/diego-felix/code/leroy_hack_day_elastic/resources/views/layouts"
 	],
 	"file_history":
 	[
+		"/home/diego-felix/code/leroy_hack_day_elastic/app/ElasticSearch/Models/Drill.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/app/ElasticSearch/Teste.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/app/ElasticSearch/Model.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/routes/api.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/resources/views/layouts/front.blade.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/migrations/drill.json",
+		"/home/diego-felix/code/leroy_hack_day_elastic/app/ElasticSearch/Api/ElasticApi.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/DDrills/Drill.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/DDrills/ElasticModel.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/DDrills/Api/ElasticApi.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/DDrills/Models/Drill.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/app/DDrills/Models/Drill.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/README.md",
+		"/home/diego-felix/code/leroy_hack_day_elastic/readme.md",
+		"/home/diego-felix/code/leroy_hack_day_elastic/app/Http/Controllers/HomeController.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/config/app.php",
+		"/home/diego-felix/code/leroy_hack_day_elastic/composer.json",
+		"/home/diego-felix/code/leroy_hack_day_elastic/.env",
 		"/home/diego-felix/code/leroy_hack_day_elastic/docker-compose.yml",
 		"/home/diego-felix/Desktop/edp2017.md",
 		"/home/diego-felix/code/leroy_hack_day_elastic/migrations/product.json",
@@ -252,7 +447,7 @@
 	],
 	"find":
 	{
-		"height": 40.0
+		"height": 55.0
 	},
 	"find_in_files":
 	{
@@ -270,6 +465,31 @@
 		"case_sensitive": true,
 		"find_history":
 		[
+			"\"alvenaria vazada\", ",
+			"concreto Dexter",
+			"Concreto",
+			"Madeira",
+			"Metal",
+			"Alvenaria Vazada",
+			"110V",
+			"220V",
+			"128",
+			"48",
+			"']; ",
+			"type",
+			" $",
+			"}",
+			"\"",
+			":",
+			"{",
+			"Route",
+			"array",
+			"ElasticModel",
+			"/\"\n",
+			"model",
+			"http",
+			"is-child box",
+			"is-3",
 			"elasticsearch1",
 			"\"type\": \"text\"",
 			"\",",
@@ -372,32 +592,7 @@
 			"assistants",
 			"m::mock(Request::class)",
 			"additionalInputs",
-			"->setAdditional(",
-			"$filter",
-			"setAdditional",
-			"parseFilter",
-			"additionalInputs",
-			"advancedRelation",
-			"nestedSort",
-			"ecommerce",
-			"sort",
-			"<div id=\"content-form\"",
-			"gettingAlloca",
-			"name",
-			"function assertEquals",
-			"\"\n",
-			"}",
-			"{",
-			": ",
-			"\"",
-			" ",
-			"                  ",
-			"                 ",
-			"                ",
-			"               ",
-			"              ",
-			"             ",
-			"            "
+			"->setAdditional("
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -415,14 +610,421 @@
 	"groups":
 	[
 		{
+			"selected": 2,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "routes/web.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 575,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								516,
+								516
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 490.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 9,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "app/Http/Controllers/DrillsController.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1173,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1106,
+								1106
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 1632.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "app/ElasticSearch/Model.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2427,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1395,
+								1395
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3360.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 14410,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1611,
+								1611
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3331.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 11,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "app/ElasticSearch/Api.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3409,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								703,
+								703
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3360.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "Api/ElasticApi.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 395,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5,
+								5
+							]
+						],
+						"settings":
+						{
+							"_anf_new": "",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 12,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "resources/views/drills/index.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1309,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "resources/views/drills/details.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 833,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								26,
+								26
+							]
+						],
+						"settings":
+						{
+							"_anf_new": "",
+							"syntax": "Packages/PHP/PHP.sublime-syntax"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "mapping/ddrils.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1427,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								312,
+								312
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 150.0,
+						"translation.y": 288.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "migrations/migration_drill.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6545,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1527,
+								1527
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.sublime-syntax"
+						},
+						"translation.x": 572.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 0,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"auto_name": "",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "resources/views/layouts/front.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2353,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1812,
+								1812
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1603.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 10,
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "resources/views/drills/_product.blade.php",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 655,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								62,
+								62
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/PHP/PHP.sublime-syntax",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": ".env.example",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 549,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								530,
+								530
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 883.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 13,
+					"type": "text"
+				}
 			]
 		}
 	],
 	"incremental_find":
 	{
-		"height": 40.0
+		"height": 33.0
 	},
 	"input":
 	{
@@ -467,7 +1069,7 @@
 	"project": "hackday.sublime-project",
 	"replace":
 	{
-		"height": 76.0
+		"height": 62.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -476,6 +1078,54 @@
 		"last_filter": "",
 		"selected_items":
 		[
+			[
+				"ddril",
+				"mapping/ddrils.json"
+			],
+			[
+				"front",
+				"resources/views/layouts/front.blade.php"
+			],
+			[
+				"model",
+				"app/ElasticSearch/Model.php"
+			],
+			[
+				"routes/e",
+				"routes/web.php"
+			],
+			[
+				"_pro",
+				"resources/views/drills/_product.blade.php"
+			],
+			[
+				"views/drill",
+				"resources/views/drills/index.blade.php"
+			],
+			[
+				"routes/web",
+				"routes/web.php"
+			],
+			[
+				"drilcontrol",
+				"app/Http/Controllers/DrillsController.php"
+			],
+			[
+				"read",
+				"readme.md"
+			],
+			[
+				"layout/front",
+				"resources/views/layouts/front.blade.php"
+			],
+			[
+				"compo",
+				"composer.json"
+			],
+			[
+				"config/app",
+				"config/app.php"
+			],
 			[
 				"docker",
 				"docker-compose.yml"
@@ -828,7 +1478,7 @@
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
-	"side_bar_visible": false,
+	"side_bar_visible": true,
 	"side_bar_width": 289.0,
 	"status_bar_visible": true,
 	"template_settings":
