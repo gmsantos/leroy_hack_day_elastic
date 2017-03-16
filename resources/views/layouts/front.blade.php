@@ -15,7 +15,7 @@
         <section class="hero is-small is-primary is-bold">
             <div class="hero-body">
                 <div class="container">
-                    <h1 class="title">Drills</h1>
+                    <h1 class="title">DDrills</h1>
                     <h2 class="subtitle">The home of your holes</h2>
                 </div>
             </div>
