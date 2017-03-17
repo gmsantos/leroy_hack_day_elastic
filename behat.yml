@@ -1,0 +1,13 @@
+default:
+  autoload:
+    - %paths.base%/tests/Behavior/features/bootstrap
+  suites:
+    default:
+      paths:
+        - %paths.base%/tests/Behavior/features
+      contexts:
+        - Tests\Behavior\FeatureContext
+      extensions:
+        Behat\MinkExtension:
+          base_url: http://leroy.dev
+          goute: ~
