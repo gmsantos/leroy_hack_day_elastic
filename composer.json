@@ -6,14 +6,15 @@
     "type": "project",
     "require": {
         "php": ">=5.6.4",
-        "behat/behat": "^3.3",
-        "behat/mink-extension": "^2.2",
         "guzzlehttp/guzzle": "^6.2",
         "laravel/dusk": "^1.0",
         "laravel/framework": "5.4.*",
         "laravel/tinker": "~1.0"
     },
     "require-dev": {
+        "behat/behat": "^3.3",
+        "behat/mink-extension": "^2.2",
+        "behat/mink-goutte-driver": "^1.2",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.7"
