@@ -2,6 +2,10 @@ FROM rscafi/web-app
 
 RUN addgroup www-data root
 
-RUN apt-get update && apt-get install -y chromedriver
+RUN apt-get update
 
-RUN docker-php-ext-install pdo-sqlite
+RUN apt-get install -y chromedriver
+
+RUN apt-get install -y sqlite3
+
+RUN docker-php-ext-install pdo_sqlite
