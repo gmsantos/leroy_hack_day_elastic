@@ -29,7 +29,7 @@ abstract class DuskTestCase extends BaseTestCase
     protected function driver()
     {
         return RemoteWebDriver::create(
-            'http://leroy.dev:80', DesiredCapabilities::chrome()
+            'http://localhost:4444/wd/hub', DesiredCapabilities::firefox()
         );
     }
 }
