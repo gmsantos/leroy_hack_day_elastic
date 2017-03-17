@@ -11,7 +11,8 @@
 |
 */
 Route::get('/', 'DrillsController@index');
-Route::get('/{id}', ['as' => 'productDetails', 'uses' => 'DrillsController@details']);
-Route::get('drill/{id}', 'DrillsController@details');
 
 Route::get('/teste', function () { return 'Laravel'; });
+
+Route::get('/{id}', ['as' => 'productDetails', 'uses' => 'DrillsController@details']);
+Route::get('drill/{id}', 'DrillsController@details');
