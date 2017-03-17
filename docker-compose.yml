@@ -2,7 +2,7 @@ version: '2'
 
 services:
   web:
-    image: rscafi/web-app:alpine
+    build: ./docker/
     ports: ["80:80"]
     depends_on: [redis,es,db]
     volumes:
