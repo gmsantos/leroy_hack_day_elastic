@@ -8,4 +8,6 @@ default:
       paths:
         - %paths.base%/tests/Behavior/features
       contexts:
-        - Tests\Behavior\FeatureContext
+        - Tests\Behavior\BaseContext
+        - Tests\Behavior\HomeContext
+        - Tests\Behavior\SearchContext

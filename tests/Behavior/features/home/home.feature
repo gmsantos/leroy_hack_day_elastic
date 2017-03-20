@@ -1,6 +1,6 @@
 Feature: Defalut elements
     In order navigate on DDrills website
-    As a user
+    As an user
     I want to see basic elements
 
     Elements which I want to see:

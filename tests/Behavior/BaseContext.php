@@ -8,11 +8,11 @@ use Behat\MinkExtension\Context\MinkContext;
 /**
  * Base feature context to test behaviors
  */
-class FeatureContext extends MinkContext implements
+class BaseContext extends MinkContext implements
     Context,
     SnippetAcceptingContext
 {
-     /**
+    /**
      * @Then I should see DDrills logo
      */
     public function iShouldSeeDDrillsLogo()
