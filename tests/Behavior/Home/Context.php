@@ -3,20 +3,20 @@ namespace Tests\Behavior\Home;
 
 use Behat\Behat\Context\Context as BehatContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
-use Tests\Behavior\UIContext;
+use Tests\Behavior\RawContext;
 
 /**
  * Base feature context to test behaviors
  */
-class Context extends UIContext implements BehatContext, SnippetAcceptingContext
+class Context extends RawContext implements BehatContext, SnippetAcceptingContext
 {
     /**
      * @Then I should see DDrills logo
      */
     public function iShouldSeeDDrillsLogo()
     {
-        $this->assertPageContainsText('DDrills');
-        $this->assertPageContainsText('The home of your holes');
+        $this->assertSession()->pageTextContains('DDrills');
+        $this->assertSession()->pageTextContains('The home of your holes');
     }
 
     /**
@@ -24,8 +24,14 @@ class Context extends UIContext implements BehatContext, SnippetAcceptingContext
      */
     public function iShouldSeeTheSearchBar()
     {
-        $this->assertElementOnPage('input[name=name]');
-        $this->assertElementOnPage('input[type=submit][value=Search]');
+        $this->assertSession()->elementExists(
+            'css',
+            'input[name=name]'
+        );
+        $this->assertSession()->elementExists(
+            'css',
+            'input[type=submit][value=Search]'
+        );
     }
 
     /**
@@ -33,11 +39,11 @@ class Context extends UIContext implements BehatContext, SnippetAcceptingContext
      */
     public function iShouldSeeTheSidebar()
     {
-        $this->assertPageContainsText('Eletric_Voltage');
-        $this->assertPageContainsText('Line');
-        $this->assertPageContainsText('Indicated_Use');
-        $this->assertPageContainsText('Power');
-        $this->assertPageContainsText('Brand');
-        $this->assertPageContainsText('RPM');
+        $this->assertSession()->pageTextContains('Eletric_Voltage');
+        $this->assertSession()->pageTextContains('Line');
+        $this->assertSession()->pageTextContains('Indicated_Use');
+        $this->assertSession()->pageTextContains('Power');
+        $this->assertSession()->pageTextContains('Brand');
+        $this->assertSession()->pageTextContains('RPM');
     }
 }

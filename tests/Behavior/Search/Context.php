@@ -4,15 +4,16 @@ namespace Tests\Behavior\Search;
 use Behat\Behat\Context\Context as BehatContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
 use Behat\Behat\Tester\Exception\PendingException;
+use Tests\Behavior\RawContext;
 
-class Context implements BehatContext, SnippetAcceptingContext
+class Context extends RawContext implements BehatContext, SnippetAcceptingContext
 {
     /**
      * @When I search for :term
      */
     public function iSearchFor($term)
     {
-        throw new PendingException();
+        $this->getSession()->getPage()->fillField('name', $term);
     }
 
     /**
@@ -20,6 +21,10 @@ class Context implements BehatContext, SnippetAcceptingContext
      */
     public function iShouldSeeDrillsList($count, $brand)
     {
-        throw new PendingException();
+        $this->assertSession()->elementTextContains(
+            'css',
+            '.content',
+            $brand
+        );
     }
 }
