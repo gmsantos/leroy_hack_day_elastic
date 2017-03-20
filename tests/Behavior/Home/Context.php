@@ -1,16 +1,14 @@
 <?php
-namespace Tests\Behavior;
+namespace Tests\Behavior\Home;
 
-use Behat\Behat\Context\Context;
+use Behat\Behat\Context\Context as BehatContext;
 use Behat\Behat\Context\SnippetAcceptingContext;
-use Behat\MinkExtension\Context\MinkContext;
+use Tests\Behavior\UIContext;
 
 /**
  * Base feature context to test behaviors
  */
-class BaseContext extends MinkContext implements
-    Context,
-    SnippetAcceptingContext
+class Context extends UIContext implements BehatContext, SnippetAcceptingContext
 {
     /**
      * @Then I should see DDrills logo
