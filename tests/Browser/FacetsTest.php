@@ -52,13 +52,33 @@ class FacetsTest extends DuskTestCase
         });
     }
 
-    /** @group b */
+    /** @group z */
     public function testShouldShowHiddenElementsWhenMouseOver()
     {
         $this->browse(function ($browser) {
             $browser->visit('/')
                 ->mouseover('.menu-list li a')
                 ->assertSee('Zizaco Approves!');
+        });
+    }
+
+    /** @group z */
+    public function testAccessAccessAnotherPage()
+    {
+        $this->browse(function ($browser) {
+            $browser->visit('http://leroymerlin.com.br')
+                ->assertSee('Produtos em destaque');
+        });
+    }
+
+    public function testAddProductsToCart()
+    {
+        $this->browse(function ($browser) {
+            $browser->visit('http://www.leroymerlin.com.br/jogo-v-line-com-41-pecas-furar-e-parafusar_89025783')
+                ->clickLink('Receber em casa')
+                ->assertPathIs('/carrinho')
+                ->assertSee('Meu Carrinho')
+                ->assertSee('Cód. do produto: 89025783');
         });
     }
 }
