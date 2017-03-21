@@ -6,6 +6,9 @@ default:
   suites:
     default:
       paths:
-        - %paths.base%/tests/Behavior/features
+        - %paths.base%/tests/Behavior
       contexts:
-        - Tests\Behavior\FeatureContext
+        - Tests\Behavior\RawContext
+        - Tests\Behavior\UIContext
+        - Tests\Behavior\Home\Context
+        - Tests\Behavior\Search\Context
