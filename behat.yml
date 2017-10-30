@@ -1,0 +1,14 @@
+default:
+  extensions:
+    Behat\MinkExtension:
+      base_url: http://localhost:8000/
+      goutte: ~
+  suites:
+    default:
+      paths:
+        - %paths.base%/tests/Behavior
+      contexts:
+        - Tests\Behavior\RawContext
+        - Tests\Behavior\UIContext
+        - Tests\Behavior\Home\Context
+        - Tests\Behavior\Search\Context
